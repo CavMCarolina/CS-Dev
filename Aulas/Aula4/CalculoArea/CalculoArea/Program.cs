@@ -22,6 +22,8 @@ namespace CalculoArea
         /// Print - Metodo para imprimir na tela
         /// </summary>
         /// <param name="value">mensagem a ser imprimida</param>
+        
+        // Sobreposição do método Print para aceitar double
         static void Print(double value)
         {
             Console.WriteLine(value);
@@ -58,6 +60,7 @@ namespace CalculoArea
         /// <returns>area do circulo</returns>
         static double CalculoAreaCirculo(double r)
         {
+            // Pow = potencia (base, expoente)
             double area = Math.Pow(r, 2) * Math.PI;
             return area;
         }

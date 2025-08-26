@@ -11,6 +11,8 @@ namespace MetodosFuncoes
         {
             Console.WriteLine(value);
         }
+
+        // Sobreposição do método Print para aceitar double
         static void Print(double value)
         {
             Console.WriteLine(value);
@@ -19,6 +21,7 @@ namespace MetodosFuncoes
         static double AreaCirculo(double raio)
         {
             double r = 0;
+            // Pow = potencia (base, expoente)
             r = Math.Pow(raio, 2) * Math.PI;
 
             return r;
