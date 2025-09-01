@@ -12,6 +12,19 @@ namespace Repeticao
             // Looping duplo --> quadrado de asterisco
             for (int i = 0; i < 10; i++)
             {
+                for (int j = 0; j < 10; j++)
+                {
+                    // 10 asteriscos na linha
+                    Console.Write("* ");
+                }
+
+                // pula para a proxima linha (para fazer mais 10 asteriscos)
+                Console.WriteLine();
+            }
+
+            // Looping duplo --> triângulo de asterisco
+            for (int i = 0; i < 10; i++)
+            {
                 for (int j = 0; j < i; j++)
                 {
                     // 10 asteriscos na linha
