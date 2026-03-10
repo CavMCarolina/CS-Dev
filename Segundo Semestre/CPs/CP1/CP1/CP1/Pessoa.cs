@@ -8,10 +8,10 @@ namespace CP1
 {
     public class Pessoa
     {
-        public int Id { get; set; }   // usado como chave
+        public int Id { get; set; }
         public string Nome { get; set; }
+        public int Idade { get; set; }
 
-        public override string ToString() => $"{Nome}";
+        public override string ToString() => $"{Nome}, {Idade} anos";
     }
 }
-

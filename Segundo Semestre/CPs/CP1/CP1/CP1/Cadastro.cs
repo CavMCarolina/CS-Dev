@@ -16,4 +16,3 @@ namespace CP1
         public bool Remover(int id) => cadastro.Remove(id);
     }
 }
-

@@ -52,14 +52,25 @@
                 </StackPanel>
 
                 <StackPanel Margin="10">
-                    <TextBlock Text="Nome / Informação"
+                    <TextBlock Text="Nome"
                                FontWeight="Bold"
                                Margin="0 0 0 5"/>
                     <TextBox x:Name="EntradaNome"
-                             Width="220"
+                             Width="200"
                              Height="30"
                              BorderBrush="#2563EB"
                              BorderThickness="2"/>
+                </StackPanel>
+                
+                <StackPanel Margin="10">
+                    <TextBlock Text="Idade"
+                       FontWeight="Bold"
+                       Margin="0 0 0 5"/>
+                    <TextBox x:Name="EntradaIdade"
+                        Width="70"
+                        Height="30"
+                        BorderBrush="#2563EB"
+                        BorderThickness="2"/>
                 </StackPanel>
 
             </StackPanel>
@@ -94,15 +105,6 @@
                         Foreground="White"
                         BorderThickness="0"
                         Click="BtnListar_Click"/>
-
-                <Button Content="Buscar"
-                        Width="110"
-                        Height="35"
-                        Margin="6"
-                        Background="#F59E0B"
-                        Foreground="White"
-                        BorderThickness="0"
-                        Click="BtnBuscar_Click"/>
 
                 <Button Content="Remover"
                         Width="110"
@@ -150,7 +152,8 @@
                                FontWeight="Bold"
                                Margin="0 0 10 0"/>
 
-                    <TextBox Width="120"
+                    <TextBox x:Name="EntradaBuscaID"
+                             Width="120"
                              Height="28"
                              BorderBrush="#2563EB"
                              BorderThickness="2"/>
@@ -159,9 +162,10 @@
                             Width="90"
                             Height="28"
                             Margin="10 0 0 0"
-                            Background="#2563EB"
+                            Background="#F59E0B"
                             Foreground="White"
-                            BorderThickness="0"/>
+                            BorderThickness="0"
+                            Click="BtnBuscar_Click"/>
 
                 </StackPanel>
 
@@ -179,9 +183,15 @@
                     <DataGrid.Columns>
 
                         <DataGridTextColumn Header="ID"
+                                            Binding="{Binding Id}"
                                             Width="100"/>
 
-                        <DataGridTextColumn Header="Informação"
+                        <DataGridTextColumn Header="Nome"
+                                            Binding="{Binding Nome}"
+                                            Width="500"/>
+
+                        <DataGridTextColumn Header="Idade"
+                                            Binding="{Binding Idade}"
                                             Width="*"/>
 
                     </DataGrid.Columns>
