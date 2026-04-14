@@ -1,0 +1,100 @@
+﻿<Window x:Class="CP2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Sistema Escolar - CRUD" Height="500" Width="700"
+        WindowStartupLocation="CenterScreen"
+        Background="#1E1E2E">
+
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Título -->
+        <TextBlock Grid.Row="0" Text="Sistema Escolar" FontSize="24" FontWeight="Bold"
+                   Foreground="#CBA6F7" HorizontalAlignment="Center" Margin="0,0,0,20"/>
+
+        <!-- Campos de entrada -->
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,10">
+            <StackPanel Margin="5">
+                <TextBlock Text="Nome" Foreground="#CDD6F4" FontSize="12" Margin="0,0,0,3"/>
+                <TextBox x:Name="TxtNome" Width="200" Height="30" Background="#313244"
+                         Foreground="#CDD6F4" BorderBrush="#6C7086" Padding="5,5"/>
+            </StackPanel>
+            <StackPanel Margin="5">
+                <TextBlock Text="Idade" Foreground="#CDD6F4" FontSize="12" Margin="0,0,0,3"/>
+                <TextBox x:Name="TxtIdade" Width="80" Height="30" Background="#313244"
+                         Foreground="#CDD6F4" BorderBrush="#6C7086" Padding="5,5"/>
+            </StackPanel>
+        </StackPanel>
+
+        <!-- Botões -->
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,5,0,15">
+            <Button x:Name="BtnInserir"   Content="➕ Inserir"   Width="110" Height="35" Margin="5"
+                    Background="#A6E3A1" Foreground="#1E1E2E" FontWeight="Bold"
+                    Click="BtnInserir_Click" Cursor="Hand"/>
+            <Button x:Name="BtnListar"    Content="📋 Listar"    Width="110" Height="35" Margin="5"
+                    Background="#89B4FA" Foreground="#1E1E2E" FontWeight="Bold"
+                    Click="BtnListar_Click" Cursor="Hand"/>
+            <Button x:Name="BtnAtualizar" Content="🔄 Atualizar" Width="110" Height="35" Margin="5"
+                    Background="#F9E2AF" Foreground="#1E1E2E" FontWeight="Bold"
+                    Click="BtnAtualizar_Click" Cursor="Hand"/>
+            <Button x:Name="BtnRemover"   Content="🗑️ Remover"   Width="110" Height="35" Margin="5"
+                    Background="#FAB387" Foreground="#1E1E2E" FontWeight="Bold"
+                    Click="BtnRemover_Click" Cursor="Hand"/>
+            <Button x:Name="BtnSair"   Content="❌ Sair"   Width="110" Height="35" Margin="5"
+                    Background="#F38BA8" Foreground="#1E1E2E" FontWeight="Bold"
+                    Click="BtnSair_Click" Cursor="Hand"/>        
+        </StackPanel>
+
+
+        <!-- Campo ID + Buscar -->
+        <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Left" Margin="0,0,0,8">
+            <TextBlock Text="ID" Foreground="#CDD6F4" FontSize="12" VerticalAlignment="Center" Margin="0,0,8,0"/>
+            <TextBox x:Name="TxtId" Width="80" Height="30" Background="#313244"
+                         Foreground="#CDD6F4" BorderBrush="#6C7086" Padding="5,5"/>
+            <Button x:Name="BtnBuscarId" Content="🔍 Buscar ID" Width="110" Height="30" Margin="8,0,0,0"
+                    Background="#CBA6F7" Foreground="#1E1E2E" FontWeight="Bold"
+                    Click="BtnBuscarId_Click" Cursor="Hand"/>
+        </StackPanel>
+
+        <!-- DataGrid -->
+        <DataGrid Grid.Row="4" x:Name="DgAlunos"
+                  AutoGenerateColumns="False"
+                  Background="#181825" Foreground="#CDD6F4"
+                  BorderBrush="#6C7086" GridLinesVisibility="Horizontal"
+                  HorizontalGridLinesBrush="#313244"
+                  RowBackground="#1E1E2E" AlternatingRowBackground="#181825"
+                  ColumnHeaderHeight="35" RowHeight="30"
+                  SelectionMode="Single"
+                  SelectionChanged="DgAlunos_SelectionChanged"
+                  IsReadOnly="True" Margin="0,0,0,10"
+                  HorizontalScrollBarVisibility="Disabled"
+                  VerticalScrollBarVisibility="Auto"
+                  HeadersVisibility="Column">
+            <DataGrid.ColumnHeaderStyle>
+                <Style TargetType="DataGridColumnHeader">
+                    <Setter Property="Background" Value="#313244"/>
+                    <Setter Property="Foreground" Value="#CBA6F7"/>
+                    <Setter Property="FontWeight" Value="Bold"/>
+                    <Setter Property="Padding"    Value="10,0"/>
+                </Style>
+            </DataGrid.ColumnHeaderStyle>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID"    Binding="{Binding Id}"    Width="80"/>
+                <DataGridTextColumn Header="Nome"  Binding="{Binding Nome}"  Width="*"/>
+                <DataGridTextColumn Header="Idade" Binding="{Binding Idade}" Width="100"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <!-- Status Bar -->
+        <Border Grid.Row="5" Background="#313244" CornerRadius="4" Padding="10,5">
+            <TextBlock x:Name="TxtStatus" Text="Pronto." Foreground="#A6E3A1" FontSize="12"/>
+        </Border>
+    </Grid>
+</Window>

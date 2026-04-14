@@ -1,0 +1,11 @@
+create database Escola;
+use Escola;
+
+create table Alunos (
+    Id    int          not null auto_increment,
+    Nome  varchar(100) not null,
+    Idade int          not null,
+    primary key (Id)
+);
+
+select * from Escola.Alunos;
